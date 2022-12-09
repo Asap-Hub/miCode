@@ -1,0 +1,14 @@
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\bin\Debug\net6.0\InnoXMigration.Domain.deps.json
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\bin\Debug\net6.0\InnoXMigration.Domain.runtimeconfig.json
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\bin\Debug\net6.0\InnoXMigration.Domain.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\bin\Debug\net6.0\InnoXMigration.Domain.pdb
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.csproj.AssemblyReference.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.AssemblyInfoInputs.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.AssemblyInfo.cs
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.csproj.CoreCompileInputs.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\refint\InnoXMigration.Domain.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.pdb
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\InnoXMigration.Domain.genruntimeconfig.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Domain\obj\Debug\net6.0\ref\InnoXMigration.Domain.dll

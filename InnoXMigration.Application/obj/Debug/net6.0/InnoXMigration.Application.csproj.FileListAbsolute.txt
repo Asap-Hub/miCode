@@ -1,0 +1,17 @@
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Application.deps.json
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Application.runtimeconfig.json
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Application.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Application.pdb
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Domain.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\bin\Debug\net6.0\InnoXMigration.Domain.pdb
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.csproj.AssemblyReference.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.AssemblyInfoInputs.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.AssemblyInfo.cs
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.csproj.CoreCompileInputs.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.csproj.CopyComplete
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\refint\InnoXMigration.Application.dll
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.pdb
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\InnoXMigration.Application.genruntimeconfig.cache
+G:\Innorik\Codes\Public\InnoXMigration\InnoXMigration.Application\obj\Debug\net6.0\ref\InnoXMigration.Application.dll
