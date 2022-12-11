@@ -17,10 +17,10 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.GetDataCommand
 
     public class GetHrEmpCommandHandler : IRequestHandler<GetHrEmpCommand, TblHrEmp>
     {
-        private readonly IHrEmp _repository;
+        private readonly IHrEmp<TblHrEmp> _repository;
         private readonly IMapper _mapper;
 
-        public GetHrEmpCommandHandler(IHrEmp repository, IMapper mapper)
+        public GetHrEmpCommandHandler(IHrEmp<TblHrEmp> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

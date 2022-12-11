@@ -62,7 +62,7 @@ namespace InnoXMigration.Api.Controllers
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
-            var UpdatingData = _mediator.Send(new CreateTaskUpdateCommand { TaskDto = taskUpdateDto });
+            var UpdatingData = await _mediator.Send(new CreateTaskUpdateCommand { TaskDto = taskUpdateDto });
            
 
             if (UpdatingData == null) {

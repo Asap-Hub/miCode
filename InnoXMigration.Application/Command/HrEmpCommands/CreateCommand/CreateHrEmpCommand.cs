@@ -19,9 +19,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.CreateCommand
     public class CreateHrEmpCommandHandler : IRequestHandler<CreateHrEmpCommand, int>
     {
         private readonly IMapper _mapper;
-        private readonly IHrEmp _repository;
+        private readonly IHrEmp<TblHrEmp> _repository;
 
-        public CreateHrEmpCommandHandler(IMapper mapper, IHrEmp Repository)
+        public CreateHrEmpCommandHandler(IMapper mapper, IHrEmp<TblHrEmp> Repository)
         {
             _mapper = mapper;
             _repository = Repository;

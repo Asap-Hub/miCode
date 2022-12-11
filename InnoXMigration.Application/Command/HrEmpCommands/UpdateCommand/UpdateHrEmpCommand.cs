@@ -19,10 +19,10 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.UpdateCommand
 
     public class UpdateHrEmpCommandHandler : IRequestHandler<UpdateHrEmpCommand, int>
     {
-        private readonly IHrEmp _repository;
+        private readonly IHrEmp<TblHrEmp> _repository;
         private readonly IMapper _mapper;
 
-        public UpdateHrEmpCommandHandler(IHrEmp repository, IMapper mapper)
+        public UpdateHrEmpCommandHandler(IHrEmp<TblHrEmp> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

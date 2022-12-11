@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using InnoXMigration.Application.Interface.HrEmp;
+using InnoXMigration.Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.DeleteCommand
     public class DeleteHrEmpCommandHandler : IRequestHandler<DeleteHrEmpCommand, int>
     {
         private readonly IMapper _mapper;
-        private readonly IHrEmp _repository;
+        private readonly IHrEmp<TblHrEmp> _repository;
 
-        public DeleteHrEmpCommandHandler(IMapper mapper, IHrEmp repository)
+        public DeleteHrEmpCommandHandler(IMapper mapper, IHrEmp<TblHrEmp> repository)
         {
             _mapper = mapper;
             _repository = repository;

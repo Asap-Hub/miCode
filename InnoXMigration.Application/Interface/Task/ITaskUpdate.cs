@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace InnoXMigration.Application.Interface.Task
 {
-    public interface ITaskUpdate
+    public interface ITaskUpdate 
     {
-        Task<int> CreateTaskUpdate(TblGenTaskUpdate tblTaskUpdate);
+        Task<TblGenTaskUpdate> CreateTaskUpdate(TblGenTaskUpdate tblTaskUpdate);
 
         Task<IEnumerable<TblGenTaskUpdate>> GetTaskUpdate();
 

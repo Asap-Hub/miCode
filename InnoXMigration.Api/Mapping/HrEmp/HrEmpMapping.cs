@@ -8,8 +8,9 @@ namespace InnoXMigration.Api.Mapping.HrEmp
     {
         public HrEmpMapping()
         {
-            CreateMap<TblHrEmpDto, TblHrEmp>();
-            CreateMap<UpdateHrEmpDto, TblHrEmp>();
+            CreateMap<TblHrEmpDto, TblHrEmp>().ReverseMap();
+            CreateMap<UpdateHrEmpDto, TblHrEmp>().ReverseMap();
+            CreateMap<TblHrOrgBranch, TblHrOrgBranchDto>().ReverseMap();
         }
     }
-}
+  }

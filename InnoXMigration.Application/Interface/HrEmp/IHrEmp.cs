@@ -8,18 +8,21 @@ using System.Threading.Tasks;
 
 namespace InnoXMigration.Application.Interface.HrEmp
 {
-    public interface IHrEmp
+    public interface IHrEmp<TEntity> where TEntity: class
     {
-        Task<int> CreateHrEmp(TblHrEmp tblHrEmp);
+        Task<int> CreateHrEmp(TEntity tblHrEmp);
 
-        Task<IEnumerable<TblHrEmp>> GetHrEmp();
+        Task<IEnumerable<TEntity>> GetHrEmp();
 
-        Task<TblHrEmp> GetHrEmpByID(int id);
+        Task<TEntity> GetHrEmpByID(int id);
 
         Task<int> DeleteHrEmp(int id);
 
-        Task<int> UpdateHrEmp(TblHrEmp tblHrEmp);
+        Task<int> UpdateHrEmp(TEntity tblHrEmp);
 
-        Task<IEnumerable<TblHrEmp>> FindHrEmp(Expression<Func<TblHrEmp, bool>> expression);
+        Task<IEnumerable<TEntity>> FindHrEmp(Expression<Func<TEntity, bool>> expression);
+
+        Task<IEnumerable<TEntity>> GetLookUpDataUsingCommand(FormattableString command);
+        Task<IEnumerable<TEntity>> FetchFromStoredProcedure(string command);
     }
 }

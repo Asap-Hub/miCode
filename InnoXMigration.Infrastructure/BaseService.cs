@@ -7,11 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace InnoXMigration.Infrastructure
 {
-    public class BaseService:IBaseService
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
         private readonly DbInnoxContext _DbContext;
 
@@ -19,26 +19,28 @@ namespace InnoXMigration.Infrastructure
         {
             _DbContext = DbContext;
         }
-        public async Task<int> CreateDataAsync<TEntity>(TEntity entity) where TEntity : class
+        public async Task<TEntity> CreateDataAsync(TEntity entity)
         {
-            var createData = await _DbContext.AddAsync<TEntity>(entity);
+              await _DbContext.Set<TEntity>().AddAsync(entity);
               await _DbContext.SaveChangesAsync();
-            return 0;
+            return entity;
+             
         }
 
-        public async Task<int> DeleteDataAsync<TEntity>(int id) where TEntity : class
+        public async Task<int> DeleteDataAsync(int id)
         {
             var findData =   _DbContext.Find<TEntity>(id);
             if (findData != null)
             {
-                 _DbContext.Remove(findData);
+                 _DbContext.Set<TEntity>().Remove(findData);
                 await _DbContext.SaveChangesAsync();
+                
             }
             return 0;
         }
-        public async Task<TEntity> GetDataByIdAsync<TEntity>(int id) where TEntity : class
+        public async Task<TEntity> GetDataByIdAsync(int id)
         {
-            var searchData = await _DbContext.FindAsync<TEntity>(id);
+            var searchData = await _DbContext.Set<TEntity>().FindAsync(id);
             if (searchData == null)
             {
                 return null;
@@ -46,32 +48,41 @@ namespace InnoXMigration.Infrastructure
             return searchData;
         }
 
-        public async Task<int> UpdateDataAsync<TEntity>(TEntity entity) where TEntity : class
+        public async Task<int> UpdateDataAsync(TEntity entity)
         {
-            var data = _DbContext.Update<TEntity>(entity);
-            return await _DbContext.SaveChangesAsync();
-            //var searchData = await _DbContext.FindAsync<TEntity>( id );
-            //if (searchData != null)
-            //{
-            
-            //}
-            //return 0;
+            var data = _DbContext.Set<TEntity>().Update(entity);
+              await _DbContext.SaveChangesAsync();
+           
+            return 0;
         }
 
-       public async Task<IEnumerable<TEntity>> GetDataAsync<TEntity>() where TEntity : class
+       public async Task<IEnumerable<TEntity>> GetDataAsync()
         {
 
-            var Data = await _DbContext.TblGenTaskUpdates.ToListAsync();
-            return (IEnumerable<TEntity>)Data;
+            var Data = await _DbContext.Set<TEntity>().ToListAsync();
+            return Data;
         }
 
-        public  async Task<IEnumerable<TEntity>> FindData<TEntity>(Expression<Func<TEntity, bool>> expression) where TEntity : class
+        public  async Task<IEnumerable<TEntity>> FindData(Expression<Func<TEntity, bool>> expression)
         {
             IQueryable<TEntity> q = _DbContext.Set<TEntity>().AsQueryable();
             
            q = q.Where(expression);
 
             return await q.ToListAsync();
+        }
+
+        public async Task<List<TEntity>> FromSql(FormattableString Query)
+        {
+            var Data = await _DbContext.Set<TEntity>().FromSql(sql: Query).ToListAsync();
+            return Data;
+        }
+
+        public async Task<IEnumerable<TEntity>> FromStoredPro(string StoreProduced)
+        {
+           var storedProcudure = await _DbContext.Set<TEntity>().FromSqlRaw(StoreProduced).ToListAsync();
+
+            return storedProcudure;
         }
     }
 }

@@ -18,9 +18,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.FindDataCommand
     }
     public class FindDataHrCommandHandler : IRequestHandler<FindDataHrCommand, IEnumerable<TblHrEmp>>
     {
-        private readonly IHrEmp _repository;
+        private readonly IHrEmp<TblHrEmp> _repository;
 
-        public FindDataHrCommandHandler(IHrEmp repository)
+        public FindDataHrCommandHandler(IHrEmp<TblHrEmp> repository)
         {
 
             _repository = repository;

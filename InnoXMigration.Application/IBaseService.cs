@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace InnoXMigration.Application
 { 
-        public interface IBaseService
+        public interface IBaseService <TEntity> where TEntity : class
         {
-            Task<IEnumerable<TEntity>> GetDataAsync<TEntity>() where TEntity : class;
+            Task<IEnumerable<TEntity>> GetDataAsync();
 
-            Task<TEntity> GetDataByIdAsync<TEntity>(int id) where TEntity : class;
-            Task<int> DeleteDataAsync<TEntity>(int id) where TEntity : class;
+            Task<TEntity> GetDataByIdAsync(int id);
+            Task<int> DeleteDataAsync(int id);
 
-            Task<int> UpdateDataAsync<TEntity>(TEntity entity) where TEntity : class;
-            Task<int> CreateDataAsync<TEntity>(TEntity entity) where TEntity : class;
-            Task<IEnumerable<TEntity>> FindData<TEntity>(Expression<Func<TEntity, bool>> expression) where TEntity : class;
+            Task<int> UpdateDataAsync(TEntity entity);
+            Task<TEntity> CreateDataAsync(TEntity entity);
+            Task<IEnumerable<TEntity>> FindData(Expression<Func<TEntity, bool>> expression);
+            Task<List<TEntity>> FromSql(FormattableString source);
+
+            Task<IEnumerable<TEntity>> FromStoredPro(string StoreProduced);
         }
 }

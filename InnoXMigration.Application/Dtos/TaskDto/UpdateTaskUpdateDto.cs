@@ -9,17 +9,13 @@ namespace InnoXMigration.Application.Dtos.TaskDto
     public class UpdateTaskUpdateDto
     {
         public int TupIdpk { get; set; }
-
-        public DateTime? TupDate { get; set; }
-
+         
         public int? TupTaskIdfk { get; set; }
 
         public string? TupUpdate { get; set; }
 
         public decimal? TupPercentComplete { get; set; }
-
-        public DateTime? TupCompletionDate { get; set; }
-
+         
         public string? TupUpdatedBy { get; set; }
 
         public int? TupStatusIdfk { get; set; }
@@ -32,10 +28,6 @@ namespace InnoXMigration.Application.Dtos.TaskDto
 
         public string? TupCreatedBy { get; set; }
 
-        public int? TupEditedBy { get; set; }
-
-        public DateTime? TupCreationDate { get; set; }
-
-        public DateTime? TupEditedDate { get; set; }
+        public int? TupEditedBy { get; set; } 
     }
 }

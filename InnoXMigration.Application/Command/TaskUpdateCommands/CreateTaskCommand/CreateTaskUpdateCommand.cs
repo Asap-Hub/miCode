@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 namespace InnoXMigration.Application.Command.TaskUpdateCommands.CreateTaskCommand
 {
     
-    public class CreateTaskUpdateCommand : IRequest<int>
+    public class CreateTaskUpdateCommand : IRequest<TblGenTaskUpdate>
     {
         public TaskUpdateDto TaskDto { get; set; }
     }
 
-    public class CreateTaskUpdateCommandHandler : IRequestHandler<CreateTaskUpdateCommand, int>
+    public class CreateTaskUpdateCommandHandler : IRequestHandler<CreateTaskUpdateCommand, TblGenTaskUpdate>
     {
         private readonly IMapper _mapper;
         private readonly ITaskUpdate _repository;
@@ -29,11 +29,11 @@ namespace InnoXMigration.Application.Command.TaskUpdateCommands.CreateTaskComman
             _mapper = mapper;
             _repository = Repository;
         }
-        public async Task<int> Handle(CreateTaskUpdateCommand request, CancellationToken cancellationToken)
+        public async Task<TblGenTaskUpdate> Handle(CreateTaskUpdateCommand request, CancellationToken cancellationToken)
         {
-            var NewDto = request.TaskDto;
-            var NewModel = new TblGenTaskUpdate();
-            var EstablishMapper = _mapper.Map(NewDto, NewModel);
+            var Dto = request.TaskDto;
+            var MainModel = new TblGenTaskUpdate();
+            var EstablishMapper = _mapper.Map(Dto, MainModel);
             var SendToRepository = await _repository.CreateTaskUpdate(EstablishMapper);
             return SendToRepository;
 

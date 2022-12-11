@@ -238,4 +238,5 @@ namespace InnoXMigration.Application.Dtos.HrEmpDto
 
         public DateTime? EmpEditedDate { get; set; }
     }
+
 }
