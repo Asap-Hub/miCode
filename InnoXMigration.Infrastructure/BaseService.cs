@@ -56,7 +56,7 @@ namespace InnoXMigration.Infrastructure
             return 0;
         }
 
-       public async Task<IEnumerable<TEntity>> GetDataAsync()
+       public async Task<IEnumerable<TEntity>> GetAllDataAsync()
         {
 
             var Data = await _DbContext.Set<TEntity>().ToListAsync();

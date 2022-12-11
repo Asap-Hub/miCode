@@ -19,9 +19,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.CreateCommand
     public class CreateHrEmpCommandHandler : IRequestHandler<CreateHrEmpCommand, int>
     {
         private readonly IMapper _mapper;
-        private readonly IHrEmp<TblHrEmp> _repository;
+        private readonly IUnitOfWork _repository;
 
-        public CreateHrEmpCommandHandler(IMapper mapper, IHrEmp<TblHrEmp> Repository)
+        public CreateHrEmpCommandHandler(IMapper mapper, IUnitOfWork Repository)
         {
             _mapper = mapper;
             _repository = Repository;
@@ -31,7 +31,7 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.CreateCommand
             var NewDto = request.HrEmpDto;
             var NewModel = new TblHrEmp();
             var EstablishMapper = _mapper.Map(NewDto, NewModel);
-            var SendToRepository = await _repository.CreateHrEmp(EstablishMapper);
+            var SendToRepository = await _repository.HrOrgBranchRepository.CreateHrEmp(EstablishMapper);
             return SendToRepository;
 
         }

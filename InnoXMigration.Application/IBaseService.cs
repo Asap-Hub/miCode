@@ -9,7 +9,7 @@ namespace InnoXMigration.Application
 { 
         public interface IBaseService <TEntity> where TEntity : class
         {
-            Task<IEnumerable<TEntity>> GetDataAsync();
+            Task<IEnumerable<TEntity>> GetAllDataAsync();
 
             Task<TEntity> GetDataByIdAsync(int id);
             Task<int> DeleteDataAsync(int id);

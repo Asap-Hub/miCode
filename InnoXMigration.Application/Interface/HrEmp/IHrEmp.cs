@@ -12,7 +12,7 @@ namespace InnoXMigration.Application.Interface.HrEmp
     {
         Task<int> CreateHrEmp(TEntity tblHrEmp);
 
-        Task<IEnumerable<TEntity>> GetHrEmp();
+        Task<IEnumerable<TEntity>> GetAllHrEmp();
 
         Task<TEntity> GetHrEmpByID(int id);
 
