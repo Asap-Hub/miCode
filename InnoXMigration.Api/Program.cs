@@ -13,6 +13,7 @@ using InnoXMigration.Application.Command.TaskUpdateCommands.GetByIdCommand;
 using InnoXMigration.Application.Command.TaskUpdateCommands.GetAllCommand;
 using InnoXMigration.Application.Command.TaskUpdateCommands.CreateTaskCommand;
 using InnoXMigration.Application.Command.TaskUpdateCommands.UpdateTaskCommand;
+using InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetailsCommand.HrOrgBranchCommand.cs;
 
 internal class Program
 {
@@ -35,6 +36,7 @@ internal class Program
         builder.Services.AddMediatR(typeof(GetHrEmpCommand).Assembly);
         builder.Services.AddMediatR(typeof(DeleteHrEmpCommand).Assembly);
         builder.Services.AddMediatR(typeof(UpdateHrEmpCommand).Assembly);
+        builder.Services.AddMediatR(typeof(GetHrOrgBranchCommand).Assembly);
 
         //registering TaskUpdateCommands
         builder.Services.AddMediatR(typeof(GetTaskUpdateByIdCommand).Assembly);

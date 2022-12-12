@@ -1,4 +1,6 @@
-﻿using InnoXMigration.Domain.Models;
+﻿using AutoMapper;
+using InnoXMigration.Application.Dtos.HrEmpDto;
+using InnoXMigration.Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,18 +10,25 @@ using System.Threading.Tasks;
 
 namespace InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetailsCommand.HrDeptsCommand
 {
-    public class GetTblHrDeptsCommand: IRequest<List<TblHrDept>>
+    public class GetTblHrDeptsCommand: IRequest<IEnumerable<TblHrDeptsDto>>
     {
     }
-    public class GetTblHrDeptsCommandHandler : IRequestHandler<GetTblHrDeptsCommand, List<TblHrDept>>
+    public class GetTblHrDeptsCommandHandler : IRequestHandler<GetTblHrDeptsCommand, IEnumerable<TblHrDeptsDto>>
     {
-        public GetTblHrDeptsCommandHandler()
-        {
+        private readonly IUnitOfWork _repository;
+        private readonly IMapper _mapper;
 
-        }
-        public Task<List<TblHrDept>> Handle(GetTblHrDeptsCommand request, CancellationToken cancellationToken)
+        public GetTblHrDeptsCommandHandler(IUnitOfWork Repository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _repository = Repository;
+            _mapper = mapper;
+        }
+        public async Task<IEnumerable<TblHrDeptsDto>> Handle(GetTblHrDeptsCommand request, CancellationToken cancellationToken)
+        {
+            var result = await _repository.HrDept.GetLookUpDataUsingCommand($"select *from tblHrDepts  where dptactive=1  and dptName is not null");
+            var MappingResult = _mapper.Map<List<TblHrDeptsDto>>(result);
+            return MappingResult;
+             
         }
     }
 }

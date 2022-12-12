@@ -31,7 +31,7 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.CreateCommand
             var NewDto = request.HrEmpDto;
             var NewModel = new TblHrEmp();
             var EstablishMapper = _mapper.Map(NewDto, NewModel);
-            var SendToRepository = await _repository.HrOrgBranchRepository.CreateHrEmp(EstablishMapper);
+            var SendToRepository = await _repository.HrEmp.CreateHrEmp(EstablishMapper);
             return SendToRepository;
 
         }

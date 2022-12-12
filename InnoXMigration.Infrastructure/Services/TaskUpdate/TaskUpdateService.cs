@@ -67,7 +67,7 @@ namespace InnoXMigration.Infrastructure.Services.TaskUpdate
 
         public async Task<IEnumerable<TblGenTaskUpdate>> GetTaskUpdate()
         {
-            return await _baseRepository.GetDataAsync();
+            return await _baseRepository.GetAllDataAsync();
         }
 
         public async Task<TblGenTaskUpdate> GetTaskUpdateByID(int id)

@@ -11,6 +11,8 @@ namespace InnoXMigration.Api.Mapping.HrEmp
             CreateMap<TblHrEmpDto, TblHrEmp>().ReverseMap();
             CreateMap<UpdateHrEmpDto, TblHrEmp>().ReverseMap();
             CreateMap<TblHrOrgBranch, TblHrOrgBranchDto>().ReverseMap();
+            CreateMap<TblHrDept, TblHrDeptsDto>().ReverseMap();
+            CreateMap<TblHrUnit, TblHrUnitsDto>().ReverseMap();
         }
     }
   }

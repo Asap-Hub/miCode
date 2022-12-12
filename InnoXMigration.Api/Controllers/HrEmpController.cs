@@ -3,7 +3,9 @@ using InnoXMigration.Application.Command.HrEmpCommands.DeleteCommand;
 using InnoXMigration.Application.Command.HrEmpCommands.FindDataCommand;
 using InnoXMigration.Application.Command.HrEmpCommands.GetAllDataCommand;
 using InnoXMigration.Application.Command.HrEmpCommands.GetDataCommand;
+using InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetailsCommand.HrDeptsCommand;
 using InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetailsCommand.HrOrgBranchCommand.cs;
+using InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetailsCommand.HrUnitsCommand;
 using InnoXMigration.Application.Command.HrEmpCommands.UpdateCommand;
 using InnoXMigration.Application.Dtos.HrEmpDto;
 using MediatR;
@@ -54,17 +56,7 @@ namespace InnoXMigration.Api.Controllers
 
         }
 
-        [HttpGet]
-        [Route("Getbranches")]
-        public async Task<IActionResult> BranchLookTable() { 
-        
-            if(!ModelState.IsValid) {
-             return BadRequest(ModelState);
-
-            }
-            var GetBranchData = await _mediator.Send(new GetHrOrgBranchCommand { });
-            return Ok(GetBranchData);
-        }
+      
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> CreateHrEmp([FromBody] TblHrEmpDto HrEmpDto)
@@ -170,6 +162,47 @@ namespace InnoXMigration.Api.Controllers
 
             var employees = await _mediator.Send(new FindDataHrCommand { });
             return Ok(new { count = employees.Count(), data = employees });
+        }
+
+
+        [HttpGet]
+        [Route("getbranches")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetBranchLookTable()
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+            }
+            var GetBranchData = await _mediator.Send(new GetHrOrgBranchCommand { });
+            return Ok(GetBranchData);
+        }
+
+        [HttpGet]
+        [Route("getDepartment")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetDepartmentLookUp() {
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
+            var GetDepartment = await _mediator.Send(new GetTblHrDeptsCommand { });
+            return Ok(GetDepartment);   
+        
+        }
+
+        [HttpGet]
+        [Route("getUnits")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetUnitLookUp()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var GetUnit = await _mediator.Send(new GetTblHrUnitsCommand { });
+            return Ok(GetUnit);
         }
     }
 }

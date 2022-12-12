@@ -18,16 +18,16 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.DeleteCommand
     public class DeleteHrEmpCommandHandler : IRequestHandler<DeleteHrEmpCommand, int>
     {
         private readonly IMapper _mapper;
-        private readonly IHrEmp<TblHrEmp> _repository;
+        private readonly IUnitOfWork _repository;
 
-        public DeleteHrEmpCommandHandler(IMapper mapper, IHrEmp<TblHrEmp> repository)
+        public DeleteHrEmpCommandHandler(IMapper mapper, IUnitOfWork repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
         public Task<int> Handle(DeleteHrEmpCommand request, CancellationToken cancellationToken)
         {
-            return _repository.DeleteHrEmp(request.EmpkId);
+            return _repository.HrEmp.DeleteHrEmp(request.EmpkId);
         }
     }
 }

@@ -19,9 +19,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetai
     public class GetHrOrgBranchCommandHandler : IRequestHandler<GetHrOrgBranchCommand, IEnumerable<TblHrOrgBranchDto>>
     {
         private readonly IMapper _mapper;
-        private readonly IHrEmp<TblHrOrgBranch> _repository;
+        private readonly IUnitOfWork _repository;
 
-        public GetHrOrgBranchCommandHandler(IMapper mapper, IHrEmp<TblHrOrgBranch> repository)
+        public GetHrOrgBranchCommandHandler(IMapper mapper, IUnitOfWork repository)
         {
             _mapper = mapper;
             _repository = repository;
@@ -29,7 +29,7 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.LookUpTableForHrDetai
         public async Task<IEnumerable<TblHrOrgBranchDto>> Handle(GetHrOrgBranchCommand request, CancellationToken cancellationToken)
         {
                   
-            var expectedResult = await _repository.GetLookUpDataUsingCommand($"select *from tblHrOrgBranches where obrActive=1 and obrName is not null");
+            var expectedResult = await _repository.HrBranch.GetLookUpDataUsingCommand($"select *from tblHrOrgBranches where obrActive=1 and obrName is not null");
 
             //return expectedResult;
             var result = _mapper.Map<List<TblHrOrgBranchDto>>(expectedResult);

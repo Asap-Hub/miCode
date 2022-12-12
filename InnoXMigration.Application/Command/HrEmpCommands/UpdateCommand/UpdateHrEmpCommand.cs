@@ -19,10 +19,10 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.UpdateCommand
 
     public class UpdateHrEmpCommandHandler : IRequestHandler<UpdateHrEmpCommand, int>
     {
-        private readonly IHrEmp<TblHrEmp> _repository;
+        private readonly IUnitOfWork _repository;
         private readonly IMapper _mapper;
 
-        public UpdateHrEmpCommandHandler(IHrEmp<TblHrEmp> repository, IMapper mapper)
+        public UpdateHrEmpCommandHandler(IUnitOfWork repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -32,7 +32,7 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.UpdateCommand
             var MainModel = request.updateHrEmpDto;
             var NewModel = new TblHrEmp();
             var Mapping = _mapper.Map(MainModel, NewModel);
-            var SendDataToRepo = await _repository.UpdateHrEmp(Mapping);
+            var SendDataToRepo = await _repository.HrEmp.UpdateHrEmp(Mapping);
             return SendDataToRepo;
         }
     }

@@ -17,17 +17,17 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.GetDataCommand
 
     public class GetHrEmpCommandHandler : IRequestHandler<GetHrEmpCommand, TblHrEmp>
     {
-        private readonly IHrEmp<TblHrEmp> _repository;
+        private readonly IUnitOfWork _repository;
         private readonly IMapper _mapper;
 
-        public GetHrEmpCommandHandler(IHrEmp<TblHrEmp> repository, IMapper mapper)
+        public GetHrEmpCommandHandler(IUnitOfWork repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
         public async Task<TblHrEmp> Handle(GetHrEmpCommand request, CancellationToken cancellationToken)
         {
-            return await _repository.GetHrEmpByID(request.Id);
+            return await _repository.HrEmp.GetHrEmpByID(request.Id);
         }
     }
 }

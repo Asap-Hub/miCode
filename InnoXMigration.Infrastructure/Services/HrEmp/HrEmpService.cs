@@ -8,25 +8,12 @@ namespace InnoXMigration.Infrastructure.Services.HrEmp
 {
     public class HrEmpService<TEntity> : BaseService<TEntity>, IHrEmp<TEntity>  where TEntity : class
     {
-       // private readonly IUnitOfWork _baseRepository;
-
-        //private readonly IBaseService<TEntity> _baseRepository;
-        //private readonly IBaseService<TEntity> _Branch_baseRepository;
         //private readonly ILogger<TblHrEmp> _logger;
 
         private readonly DbInnoxContext _dbInnoxContext;
 
-        public HrEmpService(
-            //IBaseService<TEntity> baseRepository,
-            //IBaseService<TEntity> Branch_baseRepository,
-            //ILogger<TblHrEmp> logger,
-            //IUnitOfWork baseRepository,
-            DbInnoxContext dbInnoxContext):base(dbInnoxContext)
-        {
-           // _baseRepository = baseRepository;
-            //_baseRepository = baseRepository;
-            //_Branch_baseRepository = Branch_baseRepository;
-            //_logger = logger;
+        public HrEmpService( DbInnoxContext dbInnoxContext):base(dbInnoxContext)
+        { 
             _dbInnoxContext = dbInnoxContext;   
         }
 

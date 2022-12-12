@@ -14,6 +14,14 @@ namespace InnoXMigration.Application.Dtos.HrEmpDto
 
     }
 
+    public class TblHrUnitsDto {
+
+        public int UntIdpk { get; set; }
+
+        public string? UntName { get; set; }
+
+    }
+
     public class TblHrOrgBranchDto
     {
         public int ObrIdpk { get; set; }

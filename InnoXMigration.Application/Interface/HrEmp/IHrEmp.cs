@@ -23,6 +23,6 @@ namespace InnoXMigration.Application.Interface.HrEmp
         Task<IEnumerable<TEntity>> FindHrEmp(Expression<Func<TEntity, bool>> expression);
 
         Task<IEnumerable<TEntity>> GetLookUpDataUsingCommand(FormattableString command);
-        Task<IEnumerable<TEntity>> FetchFromStoredProcedure(string command);
+        //Task<IEnumerable<TblHrOrgBranch>> FetchFromStoredProcedure(string command);
     }
 }

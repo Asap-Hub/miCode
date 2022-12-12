@@ -18,9 +18,9 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.FindDataCommand
     }
     public class FindDataHrCommandHandler : IRequestHandler<FindDataHrCommand, IEnumerable<TblHrEmp>>
     {
-        private readonly IHrEmp<TblHrEmp> _repository;
+        private readonly IUnitOfWork _repository;
 
-        public FindDataHrCommandHandler(IHrEmp<TblHrEmp> repository)
+        public FindDataHrCommandHandler(IUnitOfWork repository)
         {
 
             _repository = repository;
@@ -32,13 +32,13 @@ namespace InnoXMigration.Application.Command.HrEmpCommands.FindDataCommand
             switch (request.FilterKey)
             {
                 case EmployeeFilter.EmpActive:
-                    return await _repository.FindHrEmp(emp => emp.EmpActive == request.FilterValue as bool?);
+                    return await _repository.HrEmp.FindHrEmp(emp => emp.EmpActive == request.FilterValue as bool?);
 
                 case EmployeeFilter.EmpVisible:
-                    return await _repository.FindHrEmp(emp => emp.EmpVisible == request.FilterValue as bool?);
+                    return await _repository.HrEmp.FindHrEmp(emp => emp.EmpVisible == request.FilterValue as bool?);
 
                 case EmployeeFilter.StaffNo:
-                    return await _repository.FindHrEmp(emp => emp.EmpStaffNo == request.FilterValue as string);
+                    return await _repository.HrEmp.FindHrEmp(emp => emp.EmpStaffNo == request.FilterValue as string);
 
                 default:
                     throw new ArgumentNullException();

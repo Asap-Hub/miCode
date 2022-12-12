@@ -54,6 +54,7 @@ namespace InnoXMigration.Api
             //registering your services here.
             serviceCollection.AddScoped(typeof(IBaseService<>), typeof(BaseService<>)); 
             serviceCollection.AddScoped(typeof(IHrEmp<>), typeof(HrEmpService<>));
+            serviceCollection.AddScoped<IUnitOfWork,UnitOfWork>();
             serviceCollection.AddScoped<ITaskUpdate, TaskUpdateService>();
             //registering fluentvalidation in the program.cs file
             serviceCollection.AddFluentValidationAutoValidation( fv => { 

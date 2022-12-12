@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InnoXMigration.Infrastructure
 {
-    public class UnitOfWorkService : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         //dbcontext
         private readonly DbInnoxContext _dbInnoxContext;
@@ -22,9 +22,10 @@ namespace InnoXMigration.Infrastructure
         private IHrEmp<TblHrOrgBranch> _hrOrgBranch;
         private IHrEmp<TblHrEmp> _hrEmpt;
         private IHrEmp<TblHrDept> _hrDept;
+        private IHrEmp<TblHrUnit> _hrUnits;
 
 
-        public UnitOfWorkService(
+        public UnitOfWork(
             //dbcontext
             DbInnoxContext dbInnoxContext,
             //base services
@@ -34,7 +35,8 @@ namespace InnoXMigration.Infrastructure
             //various repository
             IHrEmp<TblHrOrgBranch> hrOrgBranch,
             IHrEmp<TblHrEmp> hrEmp,
-            IHrEmp<TblHrDept> hrDept
+            IHrEmp<TblHrDept> hrDept,
+            IHrEmp<TblHrUnit> hrUnit
             )
         {
             //dbContext
@@ -47,6 +49,7 @@ namespace InnoXMigration.Infrastructure
             _hrOrgBranch = hrOrgBranch;
             _hrDept = hrDept;
             _hrEmpt = hrEmp;
+            _hrUnits = hrUnit;
         }
 
         //TblHrEmp BaseService
@@ -63,5 +66,7 @@ namespace InnoXMigration.Infrastructure
         public IHrEmp<TblHrEmp> HrEmp => _hrEmpt ??= new HrEmpService<TblHrEmp>(_dbInnoxContext);
 
         public IHrEmp<TblHrDept> HrDept => _hrDept ??= new HrEmpService<TblHrDept>(_dbInnoxContext);
+
+        public IHrEmp<TblHrUnit> HrUnit => _hrUnits ??= new HrEmpService<TblHrUnit>(_dbInnoxContext);   
     }
 }

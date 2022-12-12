@@ -16,5 +16,6 @@ namespace InnoXMigration.Application
         IHrEmp<TblHrDept> HrDept { get; }
         IHrEmp<TblHrEmp> HrEmp { get; }
         IHrEmp<TblHrOrgBranch> HrBranch { get; }
+        IHrEmp<TblHrUnit> HrUnit { get; }
     }
 }
